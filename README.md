@@ -8,14 +8,14 @@
 Run the dev server:
 
 ```sh
-npm run dev
+pnpm run dev
 ```
 
 To run Wrangler:
 
 ```sh
-npm run build
-npm start
+pnpm run build
+pnpm start
 ```
 
 ## Typegen
@@ -23,7 +23,7 @@ npm start
 Generate types for your Cloudflare bindings in `wrangler.toml`:
 
 ```sh
-npm run typegen
+pnpm run typegen
 ```
 
 You will need to rerun typegen whenever you make changes to `wrangler.toml`.
@@ -35,7 +35,7 @@ If you don't already have an account, then [create a cloudflare account here](ht
 Once that's done, you should be able to deploy your app:
 
 ```sh
-npm run deploy
+pnpm run deploy
 ```
 
 ## Styling

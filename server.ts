@@ -1,10 +1,10 @@
-import { createRequestHandler, type ServerBuild } from "@remix-run/cloudflare";
+import { type ServerBuild, createRequestHandler } from "@remix-run/cloudflare";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore This file won’t exist if it hasn’t yet been built
 import * as build from "./build/server"; // eslint-disable-line import/no-unresolved
 import { getLoadContext } from "./load-context";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// biome-ignore lint/suspicious/noExplicitAny: This is a Cloudflare Worker handler
 const handleRemixRequest = createRequestHandler(build as any as ServerBuild);
 
 export default {
