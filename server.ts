@@ -9,7 +9,11 @@ import { getLoadContext } from "./load-context";
 // biome-ignore lint/suspicious/noExplicitAny: This is a Cloudflare Worker handler
 const handleRemixRequest = createRequestHandler(build as any as ServerBuild);
 
-const app = new Hono();
+const app = new Hono<{
+  Bindings: {
+    ENV_TEST: string;
+  };
+}>();
 
 app.use(poweredBy());
 

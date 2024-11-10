@@ -1,4 +1,5 @@
-import type { MetaFunction } from "@remix-run/cloudflare";
+import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/cloudflare";
+import { useLoaderData } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -7,7 +8,15 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export const loader = ({ request, context }: LoaderFunctionArgs) => {
+  const { env } = context.cloudflare;
+  return { env };
+};
+
 export default function Index() {
+  const { env } = useLoaderData<typeof loader>();
+  console.log(env);
+
   return (
     <div className="flex h-screen items-center justify-center">
       <div className="flex flex-col items-center gap-16">
